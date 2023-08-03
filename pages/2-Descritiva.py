@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 folder = 'data'
 archivo_data ='diabetes_prediction_dataset.csv'
-data = pd.read_csv('C:/Python/STREAMLIT_TAREA2/data' + '/' + archivo_data, sep=',')
+data = pd.read_csv('data' + '/' + archivo_data, sep=',')
 
 #Definimos las clases que vamos a utilizar y reemplazmos su valor
 
