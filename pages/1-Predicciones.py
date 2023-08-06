@@ -6,7 +6,7 @@ import requests
 
 def solicitud_API(muestra: list):
     #url de la API
-    url = 'http://20.119.16.35/predict'
+    url = 'https://20.119.16.35/predict'
     #Datos de entrada
     data = {"data": [muestra] }
     response = requests.post(url, json=data)
@@ -83,5 +83,4 @@ if predict_clicked:
         0: 'EL RESULTADO ES NEGATIVO',
         1: 'EL RESULTADO ES POSITIVO'
     }
-    # MOSTRAR LA DESCRIPCIÓN COMPLETA DE LA PREDICCIÓN
     st.success(prediction_descriptions[prediction])
