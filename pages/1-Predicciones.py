@@ -6,7 +6,7 @@ import requests
 
 def solicitud_API(muestra: list):
     #url de la API
-    url = 'http://20.119.16.35/predict'
+    url = 'http://127.0.0.1:8000/predict'
     #Datos de entrada
     data = {"data": [muestra] }
     response = requests.post(url, json=data)
@@ -78,9 +78,9 @@ if predict_clicked:
             #prediction = modelo.predict(df)
             prediction = solicitud_API(df.values.flatten().tolist())
 
+        st.write("Predicción:", prediction)
     # Crear un diccionario para asociar las predicciones
-    prediction_descriptions = {
-        0: 'EL RESULTADO ES NEGATIVO',
-        1: 'EL RESULTADO ES POSITIVO'
-    }
-    st.success(prediction_descriptions[prediction])
+   # prediction_descriptions = {
+    #    0: 'EL RESULTADO ES NEGATIVO',
+    #    1: 'EL RESULTADO ES POSITIVO'
+    #}
