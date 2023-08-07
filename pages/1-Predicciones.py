@@ -6,7 +6,9 @@ import requests
 
 def solicitud_API(muestra: list):
     #url de la API
-    url = 'http://apidiabetes.azurewebsites.net/predict'
+    #url = 'http://apidiabetes.azurewebsites.net/predict'
+    url = 'http://127.0.0.1:8000/predict'
+
     #Datos de entrada
     data = {"data": [muestra] }
     response = requests.post(url, json=data)
