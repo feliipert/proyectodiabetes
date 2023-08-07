@@ -6,7 +6,7 @@ import requests
 
 def solicitud_API(muestra: list):
     #url de la API
-    url = 'http://20.119.16.35:80/predict'
+    url = 'http://apidiabetes.azurewebsites.net/predict'
     #Datos de entrada
     data = {"data": [muestra] }
     response = requests.post(url, json=data)
@@ -79,6 +79,7 @@ if predict_clicked:
             prediction = solicitud_API(df.values.flatten().tolist())
 
         st.write("Predicción:", prediction)
+
     # Crear un diccionario para asociar las predicciones
    # prediction_descriptions = {
     #    0: 'EL RESULTADO ES NEGATIVO',
