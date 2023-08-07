@@ -74,16 +74,17 @@ if predict_clicked:
     #Validar que todos los campos contengan numeros
     for value in df.values.flatten():
         if not value or not value.isdigit():
-            #st.warning("Por Favor, complete todos los datos")
+            st.warning("Por Favor, complete todos los datos")
             break
         else:
-            #prediction = modelo.predict(df)
+            #
             prediction = solicitud_API(df.values.flatten().tolist())
-
+            #prediction1 = prediction[0]
         st.write("Predicción:", prediction)
 
-    # Crear un diccionario para asociar las predicciones
-   # prediction_descriptions = {
-    #    0: 'EL RESULTADO ES NEGATIVO',
-    #    1: 'EL RESULTADO ES POSITIVO'
+         # Crear un diccionario para asociar las predicciones
+    #prediction_descriptions = {
+    #     0: 'EL RESULTADO ES NEGATIVO',
+    #     1: 'EL RESULTADO ES POSITIVO'
     #}
+    #st.success(prediction_descriptions(prediction))
