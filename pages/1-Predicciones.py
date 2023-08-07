@@ -6,7 +6,7 @@ import requests
 
 def solicitud_API(muestra: list):
     #url de la API
-    url = 'https://20.119.16.35:443/predict'
+    url = 'http://20.119.16.35:80/predict'
     #Datos de entrada
     data = {"data": [muestra] }
     response = requests.post(url, json=data)
