@@ -44,7 +44,7 @@ def user_input_parameters():
 def solicitud_API(muestra_df: pd.DataFrame):
     #url de la API
     #url = 'http://appwebdiabetes.azurewebsites.net/predict'
-     url = 'https://appwebdiabetes.azurewebsites.net/predict'
+    url = 'https://appwebdiabetes.azurewebsites.net/predict'
     #url = 'http://127.0.0.1:8000/predict'
 
     #Datos de entrada
