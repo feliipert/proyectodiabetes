@@ -7,11 +7,9 @@ import streamlit as st
 with open ('models/modelo_RF.pkl' , 'rb') as gb: #rb lectura
     modelo = pickle.load(gb)
 
-st.subheader(" Machine Larning modelo seleccionado")
-st.subheader(" Algoritmo de Machine Learning ")
-st.write(" Definición del algoritmo implementado para predecir la Diabetes ")
+st.subheader(" 👨‍💻 Modelo de Machine Learning 👩‍💻️ ")
+st.subheader(" Predicción Diabetes Positivo o Negativo 🔬 ")
 st.subheader("Caracteristicas de entrada")
-#features = ['Géneros 0: Hombre, 1: Mujer, 2: Otro', 'Edad', 'Hipertensión (0: No, 1: Sí). ', 'Enfermedad cardíaca (0: No, 1: Sí)', ' Tabaquismo (0: No info, 1: Nunca, 2: Fumó, 3: Fuma,4: a veces, 5: Alguna vez:  .', 'Índice de masa corporal (Valor entre 10 y 95.7) ', 'Nivel de hemoglobina A1c en la sangre (Valor entre 3.5 y 9)', 'Nivel de glucosa en la sangre (Valor entre 80 y 300)']
 st.write("A continuación, ingrese los valores de las caracteristicas de entrada")
 
 def user_input_parameters():
@@ -63,7 +61,6 @@ def solicitud_API(muestra_df: pd.DataFrame):
         return None
 
 df = user_input_parameters()
-st.subheader("Modelo de Machine Learning")
 # Crear un nuevo DataFrame con una fila adicional 'Valor'
 df = df.T.reset_index()
 df.columns = ['Caracteristica', 'Valor']
@@ -91,12 +88,8 @@ if clear_clicked:
     # Limpiar la predicción si se hace clic en el botón 'Limpiar'
     prediction = ''
 
-
 # Mostrar la predicción
 if prediction == 0:
-    st.write("Resultado Negativo")
+    st.success("Resultado Negativo")
 elif prediction == 1:
-    st.write("Resultado Positivo")
-
-
-
+    st.success("Resultado Positivo")

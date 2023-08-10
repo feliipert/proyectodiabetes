@@ -1,14 +1,18 @@
 import streamlit as st
+from PIL import Image
 # Comando para subir los cambios streamlit run Home.py --server.runOnSave True
 
 
 st.set_page_config(
     page_title= "Clasificador de Diabetes Positivo o Negativo",
 )
+st.write("# Bienvemido al Clasificador de Diabetes 👨‍🔬 ")
 
-st.write("# Bienvemido al Clasificador de Diabetes ")
+# Cargar la imagen desde un archivo
+st.image("images/Canva.jpeg")
 
-st.sidebar.success("Select a demo above.")
+
+#st.sidebar.success("Select a demo above.")
 st.markdown(
     """
 Tabla de Características de la Base de Datos para la Predicción de Diabetes:
@@ -44,3 +48,6 @@ Esta tabla representa una pequeña muestra de la base de datos, donde cada fila 
 
     """
 )
+
+
+
