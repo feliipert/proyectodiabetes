@@ -69,7 +69,11 @@ st.write(d.groupby("diabetes").count())
 
 # Crear un botón para ejecutar el procesamiento de datos
 st.write("Ejecutamos los Botones para cambiar los datos de tipo Object a datos de Tipo Int")
-if st.button("Ejecutar Para seguir"):
+
+import streamlit as st
+
+if st.button("**✔️Ejecutar Para seguir 📊**"):
+
     # Reemplazar los valores en la columna 'smoking_history'
     d['smoking_history'] = d['smoking_history'].replace(['No Info', 'never', 'former', 'current', 'not current', 'ever'], [0, 1, 2, 3, 4, 5])
     d['gender'] = d['gender'].replace(['Male', 'Female', 'Other'], [0, 1, 2])
