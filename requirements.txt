@@ -9,3 +9,5 @@ Flask
 gunicorn
 uvicorn
 fastapi
+imblearn
+

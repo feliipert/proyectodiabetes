@@ -194,3 +194,14 @@ if st.button("Ejecutar Para seguir"):
     st.write("y_train original: ", np.unique(y_train, return_counts=True))
     st.write("y_train balanced: ", np.unique(y_train_balanced, return_counts=True))
 
+    st.title("Aprendizaje Supervisado")
+
+    st.write("Cargamos el modelo KNN sin entrenar, despues entrenamos el modelo y posteriormente "
+             "obtenemos las metricas logradas")
+    # Cargamos el modelo KNN sin entrenar
+    model_KNN = KNeighborsClassifier(n_neighbors=3)
+    # Entrenamos el modelo KNN
+    model_KNN.fit(X_train, y_train)
+    # Obtenemos la métrica lograda
+    model_KNN.score(X_test, y_test)
+    st.write("model_KNN.score(X_test, y_test)", model_KNN.score(X_test, y_test))
