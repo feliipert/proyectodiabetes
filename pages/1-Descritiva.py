@@ -31,7 +31,8 @@ d=data.copy()
 #d['diabetes'] = d['diabetes'].replace([0, 1], ['Positivo', 'Negativo'])
 
 st.set_page_config(page_title="Conjunto de datos")
-st.markdown("#Conjunto de datos")
+st.title("ANALITICA DESCRIPTIVA Y PROCESO DE ENTRENAMIENTO DEL MODELO   📊  📈")
+#st.markdown("#Conjunto de datos")
 st.sidebar.header("Conjunto de datos")#Como se va a llamar el data Frame
 st.write(
     """
