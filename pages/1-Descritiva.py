@@ -8,8 +8,15 @@ import matplotlib.pyplot as plt
 #Importamos los datasets que vamos autilizar
 from imblearn.over_sampling import RandomOverSampler
 from sklearn import preprocessing
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis, LinearDiscriminantAnalysis
+from sklearn.ensemble import BaggingClassifier, RandomForestClassifier, AdaBoostClassifier, ExtraTreesClassifier, \
+    GradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 folder = 'data'
 archivo_data ='diabetes_prediction_dataset.csv'
@@ -205,3 +212,50 @@ if st.button("Ejecutar Para seguir"):
     # Obtenemos la métrica lograda
     model_KNN.score(X_test, y_test)
     st.write("model_KNN.score(X_test, y_test)", model_KNN.score(X_test, y_test))
+
+    # Crear los modelos
+    st.subheader("Creamos los modelos y realizamos el proceso de ajuste de los modelos a la data de entrenamiento")
+    model_DT = DecisionTreeClassifier(random_state=0)
+    model_B = BaggingClassifier(random_state=0)
+    model_RF = RandomForestClassifier(random_state=0)
+    model_AB = AdaBoostClassifier(random_state=0)
+    model_SVM = SVC(random_state=0)
+    model_ET = ExtraTreesClassifier(random_state=0)
+    model_LR = LogisticRegression(random_state=0, max_iter=200)
+    model_GB = GradientBoostingClassifier(random_state=0)
+    model_QDA = QuadraticDiscriminantAnalysis()
+    model_LDA = LinearDiscriminantAnalysis()
+    model_GNB = GaussianNB()
+
+    st.subheader("Realizamos el proceso de ajuste de los modelos a la data de entrenamiento")
+    model_DT.fit(X_train, y_train)
+    model_B.fit(X_train, y_train)
+    model_RF.fit(X_train, y_train)
+    model_AB.fit(X_train, y_train)
+    model_SVM.fit(X_train, y_train)
+    model_ET.fit(X_train, y_train)
+    model_LR.fit(X_train, y_train)
+    model_GB.fit(X_train, y_train)
+    model_QDA.fit(X_train, y_train)
+    model_LDA.fit(X_train, y_train)
+    model_GNB.fit(X_train, y_train)
+
+    # Predecir y obtener el accura
+    st.subheader("Precedimos y obtenemos el Acurracy de cada modelo ")
+    st.write("DT, Accuracy: ", model_DT.score(X_test, y_test))
+    st.write("B, Accuracy: ", model_B.score(X_test, y_test))
+    st.write("RF, Accuracy: ", model_RF.score(X_test, y_test))
+    st.write("AB, Accuracy: ", model_AB.score(X_test, y_test))
+    st.write("SVM, Accuracy: ", model_SVM.score(X_test, y_test))
+    st.write("ET, Accuracy: ", model_ET.score(X_test, y_test))
+    st.write("LR, Accuracy: ", model_LR.score(X_test, y_test))
+    st.write("GB, Accuracy: ", model_GB.score(X_test, y_test))
+    st.write("QDA, Accuracy: ", model_QDA.score(X_test, y_test))
+    st.write("LDA, Accuracy: ", model_LDA.score(X_test, y_test))
+    st.write("GNB, Accuracy: ", model_GNB.score(X_test, y_test))
+
+    st.subheader("Exportamos el modelo entrenado escogido RandomFores")
+    st.write("#Exportamos el modelo entrenado escogido RandomForest con el siguiente comando:"
+            "  with open('model_RF.pkl' , 'wb') as archivo:   pickle.dump(model_GB, archivo)")
+
+    st.title("FIN 👨‍🎓  👩‍🎓")
